@@ -114,8 +114,10 @@ section{padding-block:clamp(56px,9vw,120px)}
 
 /* ---------- full performance ---------- */
 .full{padding-top:0}
-.wide{margin:32px 0 0;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 1.5px rgba(62,231,224,.5),0 0 40px rgba(62,231,224,.18)}
+.wide{position:relative;cursor:pointer;margin:32px 0 0;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 1.5px rgba(62,231,224,.5),0 0 40px rgba(62,231,224,.18)}
 .wide video{width:100%;aspect-ratio:16/9;background:#000}
+.wide .snd{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);white-space:nowrap;background:rgba(12,8,23,.7)}
+.wide .snd[aria-pressed="true"]{border-color:var(--cyan)}
 @media (max-width:520px){.wide{margin-top:20px;border-radius:12px}}
 
 /* ---------- about ---------- */
@@ -279,14 +281,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   <section id="full" class="full">
     <div class="wrap">
-      <div class="head">
-        <div>
-          <div class="eyebrow" data-i18n="s5e">Full performance</div>
-          <h2 data-i18n="s5h">Believer, live</h2>
-        </div>
-        <p data-i18n="s5p">The whole performance without cuts, 2:53.</p>
-      </div>
-      <figure class="wide"><video id="full-video" src="v/believer-full.mp4" poster="v/believer-full.jpg" controls playsinline preload="none"></video></figure>
+      <div class="eyebrow" data-i18n="s5e">Live performance</div>
+      <h2>Believer</h2>
+      <figure class="wide" id="full-wrap">
+        <video id="full-video" src="v/believer-full.mp4" poster="v/believer-full.jpg" muted loop playsinline preload="none"></video>
+        <button class="btn snd" id="fsnd" type="button" aria-pressed="false" data-i18n="soundOn">Sound on</button>
+      </figure>
     </div>
   </section>
 
@@ -373,7 +373,7 @@ const STR = {
     s2e:"Bio", s2h:"About Viktoria",
     s2p1:"Viktoria is 24 and speaks English and Russian. For a long time she sang at a restaurant show with singing waiters, performing for guests every night.",
     s2p2:"She sings pop songs in English and Russian, solo and in duets, and performs at restaurants, weddings and private events.",
-    s5e:"Full performance", s5h:"Believer, live", s5p:"The whole performance without cuts, 2:53.",
+    s5e:"Live performance",
     st1:"Solo songs", st2:"Duets", st3:"Languages sung",
     s3e:"Gallery", s3h:"Photos", credit:"Photos: Night2Day Moscow",
     s4e:"Booking", s4h:"Let’s talk", copy:"© Viktoria Tikhonova",
@@ -395,7 +395,7 @@ const STR = {
     s2e:"Биография", s2h:"О Виктории",
     s2p1:"Виктории 24 года, она говорит на русском и английском. Долгое время пела в ресторане с поющими официантами и каждый вечер выступала перед гостями.",
     s2p2:"Поёт поп-песни на русском и английском, соло и в дуэте. Выступает в ресторанах, на свадьбах и частных мероприятиях.",
-    s5e:"Полное выступление", s5h:"Believer целиком", s5p:"Выступление без монтажа, 2:53.",
+    s5e:"Живое выступление",
     st1:"Сольных песен", st2:"Дуэтов", st3:"Языка в репертуаре",
     s3e:"Галерея", s3h:"Фото", credit:"Фото: Night2Day Moscow",
     s4e:"Букинг", s4h:"Связаться", copy:"© Виктория Тихонова",
@@ -441,6 +441,7 @@ snd.addEventListener("click", () => {
   if (on) { reel.currentTime = 0; reel.play().catch(()=>{}); }
   snd.setAttribute("aria-pressed", String(on));
   snd.textContent = T(on ? "mute" : "soundOn");
+  if (on) setFullSound(false);
 });
 
 // ---- filters + grid
@@ -542,7 +543,7 @@ function buildQueue(){
 }
 function openAny(){
   lastFocus = document.activeElement;
-  reelWasPlaying = !reel.paused; reel.pause();
+  reelWasPlaying = !reel.paused; reel.pause(); full.pause();
   player.hidden = false; document.body.style.overflow = "hidden";
   show(); $("#close").focus();
 }
@@ -552,6 +553,7 @@ function closePlayer(){
   pv.pause(); pv.removeAttribute("src"); pv.load();
   player.hidden = true; document.body.style.overflow = "";
   if (reelWasPlaying) reel.play().catch(()=>{});
+  if (fullVisible) full.play().catch(()=>{});
   if (lastFocus) lastFocus.focus();
 }
 function step(n){ const len = mode==="video" ? list.length : PHOTOS.length; idx = (idx + n + len) % len; show(); }
@@ -579,7 +581,24 @@ $("#stage").addEventListener("touchend", e => {
 }, {passive:true});
 player.addEventListener("click", e => { if (e.target === player || e.target.id === "stage") closePlayer(); });
 
-$("#full-video").addEventListener("play", () => reel.pause());
+// ---- full performance: plays muted while on screen, tap toggles sound
+const full = $("#full-video"), fsnd = $("#fsnd");
+let fullVisible = false;
+function setFullSound(on){
+  full.muted = !on;
+  fsnd.setAttribute("aria-pressed", String(on));
+  fsnd.textContent = T(on ? "mute" : "soundOn");
+  if (on && !reel.muted){ reel.muted = true; snd.setAttribute("aria-pressed", "false"); snd.textContent = T("soundOn"); }
+}
+$("#full-wrap").addEventListener("click", () => {
+  setFullSound(full.muted);
+  if (full.paused) full.play().catch(()=>{});
+});
+new IntersectionObserver(([e]) => {
+  fullVisible = e.isIntersecting;
+  if (fullVisible && player.hidden) full.play().catch(()=>{});
+  else full.pause();
+}, {threshold:0.35}).observe(full);
 
 // ---- language switch
 function applyLang(){
@@ -588,6 +607,7 @@ function applyLang(){
   document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = T(el.dataset.i18n); });
   document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === L));
   snd.textContent = T(reel.muted ? "soundOn" : "mute");
+  fsnd.textContent = T(full.muted ? "soundOn" : "mute");
   fwrap.querySelectorAll(".chip").forEach((c, i) => { c.firstChild.textContent = T(FILTERS[i].label); });
   mas.querySelectorAll("button").forEach((b, i) => { b.setAttribute("aria-label", `${T("openPhoto")} ${i+1}`); b.firstChild.alt = T("alt"); });
   render(); renderContacts();
