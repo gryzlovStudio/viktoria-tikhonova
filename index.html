@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Viktoria Tikhonova</title>
+<meta name="description" content="Viktoria Tikhonova — vocalist and live show performer. Showreel, 14 live clips and stage photos.">
+<meta name="theme-color" content="#0c0817">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Viktoria Tikhonova — Vocalist">
+<meta property="og:description" content="Showreel, 14 live clips and stage photos.">
+<meta property="og:image" content="https://gryzlovstudio.github.io/viktoria-tikhonova/img/og.jpg">
+<meta property="og:url" content="https://gryzlovstudio.github.io/viktoria-tikhonova/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c0817'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='700' font-size='18' text-anchor='middle' fill='%23ff3f9c'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: one dark stage. Hero = name + live showreel; then the setlist as a wall of vertical clips that open in a player; photos; contacts. */
+:root{
+  --ink:#0c0817;          /* house lights off */
+  --ink-2:#161026;        /* raised surface */
+  --line:#2c2342;
+  --fg:#f3edff;
+  --muted:#a99fc4;
+  --pink:#ff3f9c;         /* the neon heart above the bar */
+  --cyan:#3ee7e0;         /* neon grid on the back wall */
+  --amber:#ffb547;        /* tungsten spot */
+  --display:"Oswald","Arial Narrow","Helvetica Neue",sans-serif;
+  --body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--ink)}
+body{color:var(--fg);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom,0px)}
+button{-webkit-appearance:none;touch-action:manipulation}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:var(--gutter)}
+.eyebrow{font:700 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
+h2{font:700 clamp(40px,7vw,88px)/.95 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:10px 0 0;text-wrap:balance}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{white-space:nowrap;font:600 20px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.mark span{color:var(--pink)}
+.bar nav{display:flex;gap:clamp(12px,3vw,28px);font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--muted)}
+.bar nav a:hover{color:var(--fg)}
+.bar nav{align-items:center}
+.langs{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px}
+.langs button{font:700 11px/1 var(--mono);letter-spacing:.08em;padding:7px 9px;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--pink);color:#1a0612}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/p2929.jpg) center 30%/cover;filter:saturate(1.3) blur(2px);opacity:.38;transform:scale(1.05)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,8,23,.55) 0%,var(--ink) 92%),radial-gradient(60% 50% at 80% 30%,rgba(255,63,156,.25),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,88px)}
+.name{font:700 clamp(56px,11vw,150px)/.9 var(--display);text-transform:uppercase;margin:18px 0 0;letter-spacing:-.005em}
+.name .l1{display:block;color:var(--fg)}
+.name .l2{display:block;color:var(--pink);text-shadow:0 0 6px rgba(255,63,156,.9),0 0 28px rgba(255,63,156,.55),0 0 70px rgba(255,63,156,.35);animation:hum 6s infinite}
+@keyframes hum{0%,91%,100%{opacity:1}92%{opacity:.55}93%{opacity:1}95%{opacity:.7}96%{opacity:1}}
+.role{font:500 clamp(18px,2.2vw,24px)/1.4 var(--body);margin:26px 0 0;max-width:30ch}
+.role b{color:var(--cyan);font-weight:700}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;padding:0;list-style:none}
+.facts li{font:700 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(22,16,38,.6)}
+.facts li b{color:var(--fg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 14px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:16px 22px;border-radius:999px;text-decoration:none;border:1.5px solid var(--pink);cursor:pointer;background:transparent;color:var(--fg)}
+.btn.solid{background:var(--pink);color:#1a0612;box-shadow:0 0 24px rgba(255,63,156,.45)}
+.btn:hover{transform:translateY(-1px)}
+
+.reel{position:relative;justify-self:center;width:min(100%,380px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 0 1.5px rgba(62,231,224,.55),0 0 40px rgba(62,231,224,.25),0 30px 80px rgba(0,0,0,.6)}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel .tag{position:absolute;left:14px;top:14px;font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:rgba(12,8,23,.7);display:flex;gap:8px;align-items:center}
+.reel .tag i{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 10px var(--pink);animation:rec 1.4s infinite}
+@keyframes rec{50%{opacity:.25}}
+.reel .snd{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);white-space:nowrap}
+.reel .snd[aria-pressed="true"]{background:rgba(12,8,23,.7);border-color:var(--cyan)}
+
+/* ---------- setlist ---------- */
+section{padding-block:clamp(56px,9vw,120px)}
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px 40px}
+.head p{max-width:46ch;color:var(--muted);margin:0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 28px}
+.chip{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{color:var(--ink);background:var(--cyan);border-color:var(--cyan)}
+.chip .n{opacity:.6;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:clamp(12px,1.6vw,20px)}
+.card{position:relative;display:block;width:100%;padding:0;border:0;background:var(--ink-2);border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;color:var(--fg);aspect-ratio:9/16;font:inherit}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:saturate(1.1)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,8,23,0) 40%,rgba(12,8,23,.92) 100%)}
+.card:hover img{transform:scale(1.05);filter:saturate(1.35)}
+.card:hover{box-shadow:0 0 0 1.5px var(--pink),0 0 30px rgba(255,63,156,.35)}
+.card .no{position:absolute;z-index:1;top:12px;left:12px;font:700 12px/1 var(--mono);color:var(--fg);background:rgba(12,8,23,.65);padding:6px 8px;border-radius:6px}
+.card .dur{position:absolute;z-index:1;top:12px;right:12px;font:400 12px/1 var(--mono);color:var(--fg);background:rgba(12,8,23,.65);padding:6px 8px;border-radius:6px;font-variant-numeric:tabular-nums}
+.card .meta{position:absolute;z-index:1;left:14px;right:14px;bottom:14px}
+.card .t{font:600 clamp(19px,1.9vw,24px)/1.05 var(--display);text-transform:uppercase;display:block;text-wrap:balance}
+.card .s{font:500 13px/1.3 var(--body);color:var(--muted);display:block;margin-top:5px}
+.card .tags{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.card .tags span{font:700 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:5px 7px;border-radius:4px;border:1px solid rgba(243,237,255,.25)}
+.card .tags .duet{border-color:var(--pink);color:var(--pink)}
+.card .play{position:absolute;z-index:1;left:50%;top:44%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(12,8,23,.55);border:1.5px solid var(--fg);display:grid;place-items:center;opacity:0;transition:opacity .25s}
+.card:hover .play,.card:focus-visible .play{opacity:1}
+.play svg{width:20px;height:20px;margin-left:3px;fill:var(--fg)}
+
+/* ---------- full performance ---------- */
+.full{padding-top:0}
+.wide{margin:32px 0 0;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 1.5px rgba(62,231,224,.5),0 0 40px rgba(62,231,224,.18)}
+.wide video{width:100%;aspect-ratio:16/9;background:#000}
+@media (max-width:520px){.wide{margin-top:20px;border-radius:12px}}
+
+/* ---------- about ---------- */
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+.about p{font-size:18px;max-width:58ch;margin:22px 0 0}
+.about p+p{margin-top:14px;color:var(--muted);font-size:16px}
+.stack{position:relative;aspect-ratio:4/5;max-width:520px;width:100%;justify-self:center}
+.stack img{position:absolute;object-fit:cover;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.stack .a{width:64%;height:78%;left:0;top:0}
+.stack .b{width:56%;height:62%;right:0;bottom:0;outline:1.5px solid var(--pink);outline-offset:-1.5px}
+.styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:30px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.styles div{background:var(--ink);padding:16px}
+.styles b{display:block;font:600 30px/1 var(--display);color:var(--amber);font-variant-numeric:tabular-nums}
+.styles span{font:400 12px/1.35 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* ---------- photos ---------- */
+.photos{background:linear-gradient(180deg,var(--ink),var(--ink-2) 30%,var(--ink))}
+.masonry{columns:3 260px;column-gap:14px;margin-top:36px}
+.masonry button{all:unset;display:block;margin:0 0 14px;break-inside:avoid;border-radius:12px;overflow:hidden;cursor:zoom-in;width:100%}
+.masonry button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.masonry img{width:100%;height:auto;transition:transform .5s}
+.masonry button:hover img{transform:scale(1.03)}
+.credit{font:400 12px/1 var(--mono);color:var(--muted);margin-top:14px;letter-spacing:.06em}
+
+/* ---------- contacts ---------- */
+.contact{position:relative;isolation:isolate;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--ink) 30%,rgba(12,8,23,.6)),url(img/p4618.jpg) right 20%/auto 140% no-repeat;opacity:.9}
+.clist{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:36px;max-width:900px}
+.citem{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(22,16,38,.75);min-width:0}
+.citem .k{font:700 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.citem .v{font:700 19px/1.3 var(--body);word-break:break-word;user-select:all}
+.citem .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.mini{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;text-decoration:none}
+.mini:hover{border-color:var(--pink)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font:400 12px/1.5 var(--mono)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- player ---------- */
+.player{position:fixed;inset:0;z-index:50;background:#07050d;display:grid;grid-template-columns:minmax(0,1fr) 340px;overscroll-behavior:contain;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);gap:16px}
+.stage{position:relative;display:grid;place-items:center;min-height:0;min-width:0}
+.stage video,.stage img{max-width:100%;border-radius:14px;background:#000}
+.stage img{max-height:calc(100dvh - 40px);width:auto;height:auto;object-fit:contain}
+.stage video{width:min(100%,calc((100vh - 40px)*9/16));width:min(100%,calc((100dvh - 40px)*9/16));aspect-ratio:9/16;height:auto;object-fit:contain}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:rgba(12,8,23,.75);color:var(--fg);cursor:pointer;display:grid;place-items:center}
+.nav:hover{border-color:var(--pink)}
+.nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2}
+.nav.prev{left:8px}.nav.next{right:8px}
+.close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;z-index:2}
+.side{display:flex;flex-direction:column;min-height:0;border-left:1px solid var(--line);padding-left:16px;padding-top:64px}
+.now .t{font:700 34px/1 var(--display);text-transform:uppercase;margin:8px 0 0;text-wrap:balance}
+.now .s{color:var(--muted);margin:6px 0 0}
+.queue{list-style:none;margin:18px 0 0;padding:0;overflow:auto;flex:1;min-height:0;border-top:1px solid var(--line)}
+.queue button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--line);cursor:pointer}
+.queue button:hover{background:var(--ink-2)}
+.queue button:focus-visible{outline:2px solid var(--cyan)}
+.queue .qn{font:700 12px/1 var(--mono);color:var(--muted)}
+.queue .qt{font:700 15px/1.2 var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.queue .qd{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.queue [aria-current="true"]{background:var(--ink-2)}
+.queue [aria-current="true"] .qn,.queue [aria-current="true"] .qt{color:var(--pink)}
+.mnav{display:none;gap:10px;margin-top:12px}
+.mnav button{flex:1;justify-content:center}
+.auto{display:flex;align-items:center;gap:8px;font:400 12px/1 var(--mono);color:var(--muted);margin-top:12px}
+.auto input{accent-color:var(--pink)}
+
+@media (max-width:900px){
+  .hero .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
+  .reel{width:min(100%,340px)}
+  .player{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;padding:calc(env(safe-area-inset-top,0px) + 58px) 10px calc(env(safe-area-inset-bottom,0px) + 12px);gap:10px}
+  .stage video{width:min(100%,calc((100vh - 250px)*9/16));width:min(100%,calc((100dvh - 250px)*9/16))}
+  .stage img{max-height:calc(100dvh - 250px)}
+  .side{border-left:0;padding-left:0;padding-top:0}
+  .queue{display:none}
+  .now .eyebrow{font-size:11px}
+  .now .t{font-size:24px;margin-top:6px}
+  .now .s{margin-top:2px;font-size:14px}
+  .nav{display:none}
+  .mnav{display:flex}
+  .mnav .btn{padding:13px 16px;font-size:13px}
+  .auto{display:none}
+  .close{top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;padding:11px 16px}
+  .contact::before{background:linear-gradient(180deg,rgba(12,8,23,.75),var(--ink) 70%),url(img/p4618.jpg) center 15%/cover no-repeat}
+}
+@media (max-width:520px){
+  .bar nav a.opt{display:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card .t{font-size:20px}
+  .card .s{font-size:12px}
+  .card .play{opacity:1;width:46px;height:46px;margin:-23px 0 0 -23px}
+  .card .meta{left:10px;right:10px;bottom:10px}
+  .card .tags span:nth-child(n+3){display:none}
+  .masonry{columns:2;column-gap:8px}
+  .masonry button{margin-bottom:8px;border-radius:8px}
+  .hero .wrap{padding-block:28px 48px}
+  .cta .btn{flex:1;justify-content:center;padding:15px 10px;font-size:12px;letter-spacing:.05em;white-space:nowrap}
+  .bar nav{gap:12px}
+  .reel{width:min(100%,300px)}
+  .citem .v{font-size:17px}
+  .styles b{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top" data-i18n="mark">Viktoria <span>T.</span></a>
+    <nav aria-label="Sections">
+      <a href="#setlist" class="opt" data-i18n="nav1">Setlist</a>
+      <a href="#about" class="opt" data-i18n="nav2">About</a>
+      <a href="#photos" class="opt" data-i18n="nav3">Photos</a>
+      <a href="#contact" data-i18n="nav4">Contact</a>
+      <span class="langs" role="group" aria-label="Language"><button type="button" id="lang-en" data-lang="en">EN</button><button type="button" id="lang-ru" data-lang="ru">RU</button></span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" data-i18n="role">Vocalist · Live show performer</div>
+        <h1 class="name"><span class="l1" data-i18n="first">Viktoria</span><span class="l2" data-i18n="last">Tikhonova</span></h1>
+        <p class="role" data-i18n="lead">Singer for restaurants, weddings and events. Pop songs in English and Russian, solo and in duets.</p>
+        <ul class="facts">
+          <li data-i18n="f1"><b>14</b> songs on this page</li>
+          <li><b>EN · RU · ES</b></li>
+          <li data-i18n="f2">Solo &amp; duets</li>
+          <li data-i18n="f3">Show bar · weddings · events</li>
+        </ul>
+        <div class="cta">
+          <a class="btn solid" href="#setlist" data-i18n="cta1">Watch clips</a>
+          <a class="btn" href="#contact" data-i18n="cta2">Book Viktoria</a>
+        </div>
+      </div>
+      <figure class="reel" style="margin:0">
+        <video id="reel" src="v/showreel.mp4" poster="v/odno.jpg" autoplay muted loop playsinline preload="auto"></video>
+        <span class="tag"><i></i><span data-i18n="reel">Showreel · 0:42</span></span>
+        <button class="btn snd" id="snd" type="button" aria-pressed="false">Sound on</button>
+      </figure>
+    </div>
+  </section>
+
+  <section id="setlist">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" data-i18n="s1e">Live clips</div>
+          <h2 data-i18n="s1h">Setlist</h2>
+        </div>
+        <p data-i18n="s1p">Every song appears once. Tap a clip to open the player, then move between songs with the arrows, your keyboard or a swipe.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter songs"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="full" class="full">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" data-i18n="s5e">Full performance</div>
+          <h2 data-i18n="s5h">Believer, live</h2>
+        </div>
+        <p data-i18n="s5p">The whole performance without cuts, 2:53.</p>
+      </div>
+      <figure class="wide"><video id="full-video" src="v/believer-full.mp4" poster="v/believer-full.jpg" controls playsinline preload="none"></video></figure>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" data-i18n="s2e">Bio</div>
+        <h2 data-i18n="s2h">About Viktoria</h2>
+        <p data-i18n="s2p1">Viktoria is 24 and speaks English and Russian. For a long time she sang at a restaurant show with singing waiters, performing for guests every night.</p>
+        <p data-i18n="s2p2">She sings pop songs in English and Russian, solo and in duets, and performs at restaurants, weddings and private events.</p>
+        <div class="styles">
+          <div><b>9</b><span data-i18n="st1">Solo songs</span></div>
+          <div><b>5</b><span data-i18n="st2">Duets</span></div>
+          <div><b>3</b><span data-i18n="st3">Languages sung</span></div>
+        </div>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <img class="a" src="img/p2924.jpg" alt="" loading="lazy">
+        <img class="b" src="img/p2929.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" class="photos">
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="s3e">Gallery</div>
+      <h2 data-i18n="s3h">Photos</h2>
+      <div class="masonry" id="masonry"></div>
+      <div class="credit" data-i18n="credit">Photos: Night2Day Moscow</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="s4e">Booking</div>
+      <h2 data-i18n="s4h">Let’s talk</h2>
+      <div class="clist" id="clist"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span data-i18n="copy">© Viktoria Tikhonova</span><span data-i18n="role">Vocalist · Live show performer</span></div>
+</footer>
+
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <div class="stage" id="stage">
+    <video id="pv" controls playsinline preload="auto"></video>
+    <img id="pi" alt="" hidden>
+    <button class="nav prev" id="prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="nav next" id="next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <aside class="side">
+    <div class="now">
+      <div class="eyebrow" id="pn"></div>
+      <div class="t" id="pt"></div>
+      <p class="s" id="ps"></p>
+      <div class="mnav"><button class="btn" id="mprev" type="button" data-i18n="prev">‹ Prev</button><button class="btn" id="mnext" type="button" data-i18n="next">Next ›</button></div>
+      <label class="auto" id="autoWrap"><input type="checkbox" id="auto" checked> <span data-i18n="auto">Play next song automatically</span></label>
+    </div>
+    <ul class="queue" id="queue"></ul>
+  </aside>
+  <button class="btn close" id="close" type="button" aria-label="Close player" data-i18n="close">Close ✕</button>
+</div>
+
+<script>
+const CONTACTS = [
+  {k:"Telegram", v:"@tiho_vika_davay_gromche", href:"https://t.me/tiho_vika_davay_gromche"},
+  {k:"Instagram", v:"@tiho_vika_davay_gromche", href:"https://instagram.com/tiho_vika_davay_gromche"},
+  {k:"phone", v:"+66 98 381 1808", href:"tel:+66983811808", open:"call"}
+];
+
+// ---- texts: data-i18n keys for markup, the rest for script-built UI
+const STR = {
+  en: {
+    title:"Viktoria Tikhonova", mark:"Viktoria <span>T.</span>",
+    nav1:"Setlist", nav2:"About", nav3:"Photos", nav4:"Contact",
+    role:"Vocalist · Live show performer", first:"Viktoria", last:"Tikhonova",
+    lead:"Singer for restaurants, weddings and events. Pop songs in English and Russian, solo and in duets.",
+    f1:"<b>14</b> songs on this page", f2:"Solo &amp; duets", f3:"Show bar · weddings · events",
+    cta1:"Watch clips", cta2:"Book Viktoria", reel:"Showreel · 0:42", soundOn:"Sound on", mute:"Mute",
+    s1e:"Live clips", s1h:"Setlist",
+    s1p:"Every song appears once. Tap a clip to open the player, then move between songs with the arrows, your keyboard or a swipe.",
+    s2e:"Bio", s2h:"About Viktoria",
+    s2p1:"Viktoria is 24 and speaks English and Russian. For a long time she sang at a restaurant show with singing waiters, performing for guests every night.",
+    s2p2:"She sings pop songs in English and Russian, solo and in duets, and performs at restaurants, weddings and private events.",
+    s5e:"Full performance", s5h:"Believer, live", s5p:"The whole performance without cuts, 2:53.",
+    st1:"Solo songs", st2:"Duets", st3:"Languages sung",
+    s3e:"Gallery", s3h:"Photos", credit:"Photos: Night2Day Moscow",
+    s4e:"Booking", s4h:"Let’s talk", copy:"© Viktoria Tikhonova",
+    prev:"‹ Prev", next:"Next ›", auto:"Play next song automatically", close:"Close ✕",
+    all:"All", solo:"Solo", duets:"Duets", fen:"English", fru:"Russian", fev:"Events",
+    en:"English", ru:"Russian", es:"Spanish", duet:"Duet", event:"Event",
+    play:"Play", photo:"Photo", openPhoto:"Open photo", alt:"Viktoria Tikhonova performing", photoBy:"Photo: Night2Day Moscow",
+    phone:"Phone", copyBtn:"Copy", copied:"Copied", selected:"Selected", open:"Open", call:"Call"
+  },
+  ru: {
+    title:"Виктория Тихонова", mark:"Виктория <span>Т.</span>",
+    nav1:"Репертуар", nav2:"Об артистке", nav3:"Фото", nav4:"Контакты",
+    role:"Вокалистка · Артистка живого шоу", first:"Виктория", last:"Тихонова",
+    lead:"Певица для ресторанов, свадеб и мероприятий. Поп-песни на русском и английском, соло и в дуэте.",
+    f1:"<b>14</b> песен на сайте", f2:"Соло и дуэты", f3:"Шоу-бар · свадьбы · мероприятия",
+    cta1:"Смотреть видео", cta2:"Связаться", reel:"Шоурил · 0:42", soundOn:"Со звуком", mute:"Без звука",
+    s1e:"Живые выступления", s1h:"Репертуар",
+    s1p:"Каждая песня здесь один раз. Нажмите на ролик, чтобы открыть плеер, и листайте песни стрелками, клавиатурой или свайпом.",
+    s2e:"Биография", s2h:"О Виктории",
+    s2p1:"Виктории 24 года, она говорит на русском и английском. Долгое время пела в ресторане с поющими официантами и каждый вечер выступала перед гостями.",
+    s2p2:"Поёт поп-песни на русском и английском, соло и в дуэте. Выступает в ресторанах, на свадьбах и частных мероприятиях.",
+    s5e:"Полное выступление", s5h:"Believer целиком", s5p:"Выступление без монтажа, 2:53.",
+    st1:"Сольных песен", st2:"Дуэтов", st3:"Языка в репертуаре",
+    s3e:"Галерея", s3h:"Фото", credit:"Фото: Night2Day Moscow",
+    s4e:"Букинг", s4h:"Связаться", copy:"© Виктория Тихонова",
+    prev:"‹ Назад", next:"Дальше ›", auto:"Автоматически включать следующую", close:"Закрыть ✕",
+    all:"Все", solo:"Соло", duets:"Дуэты", fen:"Английские", fru:"Русские", fev:"Мероприятия",
+    en:"Английский", ru:"Русский", es:"Испанский", duet:"Дуэт", event:"Банкет",
+    play:"Смотреть", photo:"Фото", openPhoto:"Открыть фото", alt:"Виктория Тихонова на сцене", photoBy:"Фото: Night2Day Moscow",
+    phone:"Телефон", copyBtn:"Копировать", copied:"Скопировано", selected:"Выделено", open:"Открыть", call:"Позвонить"
+  }
+};
+let L = "en";
+try { L = localStorage.getItem("vika-lang") || ((navigator.language || "").toLowerCase().startsWith("ru") ? "ru" : "en"); } catch(e){}
+if (!STR[L]) L = "en";
+const T = k => STR[L][k] ?? STR.en[k] ?? k;
+
+const SONGS = [
+  {id:"believer", t:"Believer", s:"Imagine Dragons cover", sr:"кавер на Imagine Dragons", lang:"en", duet:false, ev:false, d:61.8},
+  {id:"shine", t:"Shine Bright", s:"“Diamonds”, Rihanna cover", sr:"«Diamonds», кавер на Rihanna", lang:"en", duet:false, ev:false, d:24.4},
+  {id:"flowers", t:"Flowers", s:"Miley Cyrus cover", sr:"кавер на Miley Cyrus", lang:"en", duet:false, ev:false, d:34.0},
+  {id:"dancing", t:"Dancing", s:"Live at the show bar", sr:"Живьём в шоу-баре", lang:"en", duet:false, ev:false, d:42.1},
+  {id:"odno", t:"Одно и то же", s:"The Same Thing", sr:"", lang:"ru", duet:false, ev:false, d:24.0},
+  {id:"spektakl", t:"Спектакль окончен", s:"The Show Is Over", sr:"", lang:"ru", duet:false, ev:true, d:59.3},
+  {id:"drugoy", t:"У меня появился другой", s:"I’ve Found Someone Else", sr:"", lang:"ru", duet:false, ev:true, d:44.1},
+  {id:"planeta", t:"На малютке планете", s:"On a Tiny Planet", sr:"", lang:"ru", duet:false, ev:false, d:27.3},
+  {id:"rozovoe", t:"За розовым морем", s:"Beyond the Pink Sea", sr:"", lang:"ru", duet:false, ev:false, d:54.8},
+  {id:"neostavlyay", t:"Не оставляй меня, любимый", s:"Don’t Leave Me, My Love", sr:"", lang:"ru", duet:true, ev:false, d:43.1},
+  {id:"zhanna", t:"Стюардесса по имени Жанна", s:"A Stewardess Named Zhanna", sr:"", lang:"ru", duet:true, ev:false, d:27.6},
+  {id:"popytka", t:"Попытка №5", s:"Attempt No. 5", sr:"", lang:"ru", duet:true, ev:false, d:27.4},
+  {id:"osen", t:"Осень", s:"Autumn", sr:"", lang:"ru", duet:true, ev:false, d:22.1},
+  {id:"quizas", t:"Quizás, Quizás, Quizás", s:"Spanish standard", sr:"Испанский стандарт", lang:"es", duet:true, ev:false, d:25.7}
+];
+const PHOTOS = ["p4618","p2930","p2924","p2931","p1771","p5566","p2929","p5095","p5348","p7599","p5562","p2928","p5563","p5564"];
+
+const $ = s => document.querySelector(s);
+const fmt = d => `${Math.floor(d/60)}:${String(Math.round(d%60)).padStart(2,"0")}`;
+const sub = s => L === "ru" ? s.sr : s.s;
+
+// ---- showreel sound
+const reel = $("#reel"), snd = $("#snd");
+snd.addEventListener("click", () => {
+  const on = reel.muted;
+  reel.muted = !on;
+  if (on) { reel.currentTime = 0; reel.play().catch(()=>{}); }
+  snd.setAttribute("aria-pressed", String(on));
+  snd.textContent = T(on ? "mute" : "soundOn");
+});
+
+// ---- filters + grid
+const FILTERS = [
+  {k:"all", label:"all", f:()=>true},
+  {k:"solo", label:"solo", f:s=>!s.duet},
+  {k:"duet", label:"duets", f:s=>s.duet},
+  {k:"en", label:"fen", f:s=>s.lang==="en"},
+  {k:"ru", label:"fru", f:s=>s.lang==="ru"},
+  {k:"ev", label:"fev", f:s=>s.ev}
+];
+let current = FILTERS[0];
+let list = SONGS.slice();
+const fwrap = $("#filters"), grid = $("#grid");
+FILTERS.forEach(F => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.id = "f-" + F.k;
+  b.innerHTML = `${T(F.label)}<span class="n">${SONGS.filter(F.f).length}</span>`;
+  b.setAttribute("aria-pressed", F === current);
+  b.onclick = () => { current = F; fwrap.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b)); render(); };
+  fwrap.appendChild(b);
+});
+function render(){
+  list = SONGS.filter(current.f);
+  grid.innerHTML = "";
+  list.forEach((s, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "card";
+    b.setAttribute("aria-label", `${T("play")} ${s.t}`);
+    b.innerHTML = `<img src="v/${s.id}.jpg" alt="" loading="lazy">
+      <span class="no">${String(i+1).padStart(2,"0")}</span><span class="dur">${fmt(s.d)}</span>
+      <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+      <span class="meta"><span class="t">${s.t}</span>${sub(s)?`<span class="s">${sub(s)}</span>`:""}
+      <span class="tags"><span>${T(s.lang)}</span>${s.duet?`<span class="duet">${T("duet")}</span>`:`<span>${T("solo")}</span>`}${s.ev?`<span>${T("event")}</span>`:""}</span></span>`;
+    b.onclick = () => openVideo(i);
+    grid.appendChild(b);
+  });
+}
+render();
+
+// ---- photos
+const mas = $("#masonry");
+PHOTOS.forEach((p, i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.setAttribute("aria-label", `${T("openPhoto")} ${i+1}`);
+  b.innerHTML = `<img src="img/${p}.jpg" alt="${T("alt")}" loading="lazy">`;
+  b.onclick = () => openPhoto(i);
+  mas.appendChild(b);
+});
+
+// ---- contacts
+const clist = $("#clist");
+function renderContacts(){
+clist.innerHTML = "";
+CONTACTS.forEach(c => {
+  const d = document.createElement("div");
+  d.className = "citem";
+  d.innerHTML = `<span class="k">${T(c.k)}</span><span class="v">${c.v}</span><span class="row"><button class="mini" type="button">${T("copyBtn")}</button>${c.href?`<a class="mini" href="${c.href}" ${c.href.startsWith("http")?'target="_blank" rel="noopener"':''}>${T(c.open||"open")}</a>`:""}</span>`;
+  const btn = d.querySelector("button"), val = d.querySelector(".v");
+  btn.onclick = () => {
+    const done = () => { btn.textContent = T("copied"); setTimeout(()=>btn.textContent=T("copyBtn"), 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(val); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = T("selected"); };
+    try { navigator.clipboard.writeText(c.v).then(done, fallback); } catch(e){ fallback(); }
+  };
+  clist.appendChild(d);
+});
+}
+
+// ---- player
+const player = $("#player"), pv = $("#pv"), pi = $("#pi"), queue = $("#queue");
+let mode = "video", idx = 0, lastFocus = null, reelWasPlaying = false;
+function show(){
+  if (mode === "video"){
+    const s = list[idx];
+    pi.hidden = true; pv.hidden = false;
+    pv.src = `v/${s.id}.mp4`; pv.poster = `v/${s.id}.jpg`;
+    pv.play().catch(()=>{});
+    $("#pn").textContent = `${String(idx+1).padStart(2,"0")} / ${String(list.length).padStart(2,"0")} · ${T(s.lang)} · ${T(s.duet?"duet":"solo")}`;
+    $("#pt").textContent = s.t; $("#ps").textContent = sub(s);
+    $("#autoWrap").hidden = false; queue.hidden = false;
+    queue.querySelectorAll("button").forEach((b,i)=>b.setAttribute("aria-current", i===idx));
+    const cur = queue.children[idx]; if (cur) cur.scrollIntoView({block:"nearest"});
+  } else {
+    pv.pause(); pv.removeAttribute("src"); pv.load(); pv.hidden = true;
+    pi.hidden = false; pi.src = `img/${PHOTOS[idx]}.jpg`; pi.alt = T("alt");
+    $("#pn").textContent = `${T("photo")} ${idx+1} / ${PHOTOS.length}`;
+    $("#pt").textContent = T("title"); $("#ps").textContent = T("photoBy");
+    $("#autoWrap").hidden = true; queue.hidden = true;
+  }
+}
+function buildQueue(){
+  queue.innerHTML = "";
+  list.forEach((s,i) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<button type="button"><span class="qn">${String(i+1).padStart(2,"0")}</span><span class="qt">${s.t}</span><span class="qd">${fmt(s.d)}</span></button>`;
+    li.firstChild.onclick = () => { idx = i; show(); };
+    queue.appendChild(li);
+  });
+}
+function openAny(){
+  lastFocus = document.activeElement;
+  reelWasPlaying = !reel.paused; reel.pause();
+  player.hidden = false; document.body.style.overflow = "hidden";
+  show(); $("#close").focus();
+}
+function openVideo(i){ mode = "video"; idx = i; buildQueue(); openAny(); }
+function openPhoto(i){ mode = "photo"; idx = i; openAny(); }
+function closePlayer(){
+  pv.pause(); pv.removeAttribute("src"); pv.load();
+  player.hidden = true; document.body.style.overflow = "";
+  if (reelWasPlaying) reel.play().catch(()=>{});
+  if (lastFocus) lastFocus.focus();
+}
+function step(n){ const len = mode==="video" ? list.length : PHOTOS.length; idx = (idx + n + len) % len; show(); }
+$("#prev").onclick = () => step(-1);
+$("#next").onclick = () => step(1);
+$("#mprev").onclick = () => step(-1);
+$("#mnext").onclick = () => step(1);
+$("#close").onclick = closePlayer;
+pv.addEventListener("ended", () => { if ($("#auto").checked) step(1); });
+document.addEventListener("keydown", e => {
+  if (player.hidden) return;
+  if (e.key === "Escape") closePlayer();
+  else if (e.key === "ArrowRight") step(1);
+  else if (e.key === "ArrowLeft") step(-1);
+});
+let tx = null;
+$("#stage").addEventListener("touchstart", e => {
+  const t = e.touches[0], r = (mode === "video" ? pv : pi).getBoundingClientRect();
+  tx = (mode === "video" && t.clientY > r.bottom - 80) ? null : t.clientX;   // keep the scrub bar for seeking
+}, {passive:true});
+$("#stage").addEventListener("touchend", e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1);
+}, {passive:true});
+player.addEventListener("click", e => { if (e.target === player || e.target.id === "stage") closePlayer(); });
+
+$("#full-video").addEventListener("play", () => reel.pause());
+
+// ---- language switch
+function applyLang(){
+  document.documentElement.lang = L;
+  document.title = T("title");
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = T(el.dataset.i18n); });
+  document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === L));
+  snd.textContent = T(reel.muted ? "soundOn" : "mute");
+  fwrap.querySelectorAll(".chip").forEach((c, i) => { c.firstChild.textContent = T(FILTERS[i].label); });
+  mas.querySelectorAll("button").forEach((b, i) => { b.setAttribute("aria-label", `${T("openPhoto")} ${i+1}`); b.firstChild.alt = T("alt"); });
+  render(); renderContacts();
+  if (!player.hidden) show();
+}
+document.querySelectorAll(".langs button").forEach(b => b.onclick = () => {
+  L = b.dataset.lang;
+  try { localStorage.setItem("vika-lang", L); } catch(e){}
+  applyLang();
+});
+applyLang();
+</script>
+</body>
+</html>
